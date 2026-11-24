@@ -1,0 +1,142 @@
+import { JobRequisition, Candidate } from '@/types/recruitment';
+
+export const MOCK_REQUISITIONS: JobRequisition[] = [
+  // OSFORH
+  {
+    id: 'job-osf-1',
+    organizationId: 'org-osforh',
+    title: 'Senior Frontend Engineer (React/TypeScript)',
+    department: 'Software Engineering',
+    location: 'Dubai Global HQ',
+    openings: 2,
+    applicantsCount: 28,
+    status: 'active',
+    postedDate: '2026-11-01',
+  },
+  {
+    id: 'job-osf-2',
+    organizationId: 'org-osforh',
+    title: 'Staff Backend Architect (PHP / Laravel / Microservices)',
+    department: 'Software Engineering',
+    location: 'Cairo Tech Campus',
+    openings: 1,
+    applicantsCount: 19,
+    status: 'active',
+    postedDate: '2026-11-05',
+  },
+  {
+    id: 'job-osf-3',
+    organizationId: 'org-osforh',
+    title: 'Product Design Lead (UI/UX Systems)',
+    department: 'Product & Design',
+    location: 'Dubai Global HQ',
+    openings: 1,
+    applicantsCount: 14,
+    status: 'active',
+    postedDate: '2026-11-10',
+  },
+
+  // Acme
+  {
+    id: 'job-acm-1',
+    organizationId: 'org-acme',
+    title: 'Staff AI Research Scientist',
+    department: 'Applied AI & ML',
+    location: 'San Francisco Tech Hub',
+    openings: 3,
+    applicantsCount: 42,
+    status: 'active',
+    postedDate: '2026-10-25',
+  },
+
+  // Nova
+  {
+    id: 'job-nov-1',
+    organizationId: 'org-nova',
+    title: 'Logistics Network Planner',
+    department: 'Supply Chain Operations',
+    location: 'London Gherkin Office',
+    openings: 2,
+    applicantsCount: 16,
+    status: 'active',
+    postedDate: '2026-11-08',
+  },
+];
+
+export const MOCK_CANDIDATES: Candidate[] = [
+  // OSFORH candidates
+  {
+    id: 'cand-osf-1',
+    organizationId: 'org-osforh',
+    jobId: 'job-osf-1',
+    jobTitle: 'Senior Frontend Engineer (React/TypeScript)',
+    name: 'Rami Haddad',
+    email: 'rami.haddad@example.com',
+    phone: '+971 50 111 4455',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+    stage: 'interview',
+    appliedDate: '2026-11-03',
+    experienceYears: 6,
+    rating: 5,
+  },
+  {
+    id: 'cand-osf-2',
+    organizationId: 'org-osforh',
+    jobId: 'job-osf-1',
+    jobTitle: 'Senior Frontend Engineer (React/TypeScript)',
+    name: 'Maya Zein',
+    email: 'maya.zein@example.com',
+    phone: '+971 52 333 7788',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    stage: 'offer',
+    appliedDate: '2026-11-02',
+    experienceYears: 7,
+    rating: 5,
+  },
+  {
+    id: 'cand-osf-3',
+    organizationId: 'org-osforh',
+    jobId: 'job-osf-2',
+    jobTitle: 'Staff Backend Architect (PHP / Laravel)',
+    name: 'Tamer Shawky',
+    email: 'tamer.shawky@example.com',
+    phone: '+20 101 444 8899',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+    stage: 'screening',
+    appliedDate: '2026-11-12',
+    experienceYears: 9,
+    rating: 4,
+  },
+
+  // Acme candidates
+  {
+    id: 'cand-acm-1',
+    organizationId: 'org-acme',
+    jobId: 'job-acm-1',
+    jobTitle: 'Staff AI Research Scientist',
+    name: 'Sergei Volkov',
+    email: 'sergei.v@example.com',
+    phone: '+1 415 555 7711',
+    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80',
+    stage: 'interview',
+    appliedDate: '2026-11-05',
+    experienceYears: 8,
+    rating: 5,
+  },
+
+  // Nova candidates
+  {
+    id: 'cand-nov-1',
+    organizationId: 'org-nova',
+    jobId: 'job-nov-1',
+    jobTitle: 'Logistics Network Planner',
+    name: 'Charlotte Davies',
+    email: 'charlotte.d@example.co.uk',
+    phone: '+44 20 7946 0882',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    stage: 'applied',
+    appliedDate: '2026-11-14',
+    experienceYears: 4,
+    rating: 4,
+  },
+];

@@ -64,7 +64,7 @@ class BackendDashboardService implements IDashboardService {
           openRequisitions: 8,
           pendingApprovalsCount: d.pendingLeaves || 3,
           retentionRate: '96.4%',
-          monthlyPayrollEstimate: '$1,420,000',
+          monthlyPayrollEstimate: '₹14,20,000',
         };
       }
     } catch (err) {
@@ -84,7 +84,7 @@ class BackendDashboardService implements IDashboardService {
       openRequisitions: 8,
       pendingApprovalsCount: 3,
       retentionRate: '96.4%',
-      monthlyPayrollEstimate: '$1,420,000',
+      monthlyPayrollEstimate: '₹14,20,000',
     };
   }
 
@@ -101,7 +101,7 @@ class BackendDashboardService implements IDashboardService {
       },
       {
         id: 'task-2',
-        title: 'Client Lunch Reimbursement ($450)',
+        title: 'Client Lunch Reimbursement (₹4,500)',
         type: 'expense',
         requesterName: 'Karim Fawzy',
         requesterAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80',

@@ -343,11 +343,11 @@ export const EmployeesPage: React.FC = () => {
 
           <div className="p-3.5 sm:p-4">
             <div className="flex items-center gap-1.5 text-stone-500 text-[11px] font-medium">
-              <DollarSign className="h-3.5 w-3.5 text-stone-400" />
+              <span className="font-semibold text-stone-400 font-mono text-xs">₹</span>
               Total Monthly Payroll
             </div>
             <div className="mt-1 flex items-baseline gap-2">
-              <span className="text-xl font-bold text-stone-900">${totalPayroll.toLocaleString()}</span>
+              <span className="text-xl font-bold text-stone-900">₹{totalPayroll.toLocaleString()}</span>
               <span className="text-[11px] text-emerald-700 font-medium">Gross per month</span>
             </div>
           </div>
@@ -509,10 +509,10 @@ export const EmployeesPage: React.FC = () => {
                     {/* Salary */}
                     <td className="px-4 py-3">
                       <span className="font-semibold text-stone-900">
-                        ${emp.salary.gross.toLocaleString()}
+                        ₹{emp.salary.gross.toLocaleString()}
                       </span>
                       <span className="text-[10px] text-stone-400 block">
-                        Basic: ${emp.salary.basic.toLocaleString()}
+                        Basic: ₹{emp.salary.basic.toLocaleString()}
                       </span>
                     </td>
 
@@ -607,7 +607,7 @@ export const EmployeesPage: React.FC = () => {
               <div className="pt-2.5 border-t border-[#f4f1ea] flex items-center justify-between text-xs">
                 <div>
                   <span className="text-[10px] text-stone-400 block">Gross Salary</span>
-                  <span className="font-bold text-stone-900">${emp.salary.gross.toLocaleString()}</span>
+                  <span className="font-bold text-stone-900">₹{emp.salary.gross.toLocaleString()}</span>
                 </div>
 
                 <Button
@@ -740,21 +740,21 @@ export const EmployeesPage: React.FC = () => {
               {/* Section 4: Compensation & Payroll */}
               <div className="rounded-xl border border-[#e6e3da] bg-[#faf9f5] p-3.5 space-y-2">
                 <h4 className="font-semibold text-stone-800 text-[11px] uppercase tracking-wider flex items-center gap-1.5 pb-1 border-b border-[#ece8df]">
-                  <DollarSign className="h-3.5 w-3.5 text-stone-400" />
+                  <span className="font-semibold text-stone-400 font-mono text-xs">₹</span>
                   Compensation & Salary
                 </h4>
                 <div className="space-y-1.5 pt-1">
                   <div className="flex items-center justify-between">
                     <span className="text-stone-500">Basic Monthly:</span>
-                    <span className="font-semibold text-stone-800">${selectedEmployee.salary.basic.toLocaleString()}</span>
+                    <span className="font-semibold text-stone-800">₹{selectedEmployee.salary.basic.toLocaleString()}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-stone-500">Fixed Allowances:</span>
-                    <span className="font-semibold text-stone-800">${selectedEmployee.salary.allowances.toLocaleString()}</span>
+                    <span className="font-semibold text-stone-800">₹{selectedEmployee.salary.allowances.toLocaleString()}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t border-[#ece8df]">
                     <span className="font-bold text-stone-900">Total Gross Pay:</span>
-                    <span className="font-bold text-base text-emerald-800">${selectedEmployee.salary.gross.toLocaleString()}</span>
+                    <span className="font-bold text-base text-emerald-800">₹{selectedEmployee.salary.gross.toLocaleString()}</span>
                   </div>
                 </div>
               </div>

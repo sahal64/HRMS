@@ -183,7 +183,7 @@ export const SelfServicePage: React.FC = () => {
             <div className="p-2 rounded-lg bg-[#faf9f5] border border-[#f0ede6] flex items-center justify-between">
               <div>
                 <p className="font-semibold text-stone-800 text-[11px]">Client Travel Claim</p>
-                <p className="text-[10px] text-emerald-600 font-semibold">$320 • Reimbursed</p>
+                <p className="text-[10px] text-emerald-600 font-semibold">₹26,500 • Reimbursed</p>
               </div>
               <span className="text-[10px] text-stone-400 font-mono">#EXP-841</span>
             </div>

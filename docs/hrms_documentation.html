@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OSFORH HRMS - System Architecture & Functional Documentation</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm;
+    }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.55;
+      font-size: 11pt;
+      margin: 0;
+      padding: 0;
+    }
+    .cover {
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 85vh;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 40px;
+    }
+    .badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 600;
+      font-size: 10pt;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    h1 {
+      font-size: 28pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 15pt;
+      color: #475569;
+      margin: 0 0 30px 0;
+      font-weight: 400;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .meta-item strong {
+      display: block;
+      color: #64748b;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .meta-item span {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    h2 {
+      font-size: 16pt;
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 12.5pt;
+      font-weight: 600;
+      color: #1e40af;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      page-break-after: avoid;
+    }
+    p {
+      margin: 0 0 10px 0;
+    }
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px 0;
+      font-size: 10pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .code-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 9pt;
+      margin: 12px 0 18px 0;
+      overflow-x: auto;
+    }
+    .highlight-card {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .flow-step {
+      display: flex;
+      margin-bottom: 12px;
+    }
+    .step-num {
+      width: 26px;
+      height: 26px;
+      background: #2563eb;
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 10pt;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER PAGE -->
+  <div class="cover">
+    <div class="badge">Enterprise Web Application Documentation</div>
+    <h1>OSFORH HRMS</h1>
+    <div class="subtitle">Complete Technical & Functional System Architecture Guide</div>
+    <p>A modern, full-stack Human Resource Management System engineered with a decoupled React TypeScript frontend, lightweight PHP RESTful backend, and MySQL transactional data store.</p>
+    
+    <div class="meta-grid">
+      <div class="meta-item">
+        <strong>Application Name</strong>
+        <span>OSFORH HRMS Portal</span>
+      </div>
+      <div class="meta-item">
+        <strong>Live Production URL</strong>
+        <span>https://hrms-pink-six.vercel.app</span>
+      </div>
+      <div class="meta-item">
+        <strong>Frontend Stack</strong>
+        <span>React 18, Vite, TypeScript, Tailwind CSS, Lucide Icons</span>
+      </div>
+      <div class="meta-item">
+        <strong>Backend Stack</strong>
+        <span>PHP 8.x, PDO, MySQL 8.0, REST Architecture</span>
+      </div>
+      <div class="meta-item">
+        <strong>Hosting & Cloud Infrastructure</strong>
+        <span>Vercel (Edge CDN) + InfinityFree (PHP/MySQL Engine)</span>
+      </div>
+      <div class="meta-item">
+        <strong>Source Code Repository</strong>
+        <span>github.com/sahal64/HRMS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS & ARCHITECTURE -->
+  <h2>1. Executive Summary & Architecture</h2>
+  <p>The <strong>OSFORH HRMS Portal</strong> is designed to streamline corporate human resource workflows, employee lifecycle management, attendance metrics, and departmental organization. Built with high performance and zero-cost scalable infrastructure in mind, it decouples the client user interface from the API and persistence layer.</p>
+
+  <h3>High-Level Architecture Diagram</h3>
+  <div class="code-box">
+[ User Browser / Mobile Device ]
+            │
+            ▼  (HTTPS / Instant Global Edge)
+┌──────────────────────────────────────────────┐
+│  FRONTEND: Vercel (Edge Delivery)             │
+│  - React 18 SPA + Vite + Tailwind CSS        │
+│  - Client Routing & Auth State Management    │
+└──────────────────────┬───────────────────────┘
+                       │
+                       ▼  (REST API calls via JSON)
+┌──────────────────────────────────────────────┐
+│  BACKEND: InfinityFree Web Engine (PHP 8.x)   │
+│  - /api/auth/login.php                       │
+│  - /api/dashboard/metrics.php                │
+│  - /api/employees/index.php                  │
+│  - /api/attendance/index.php                 │
+│  - /api/leave/index.php                      │
+│  - /api/celebrations/index.php               │
+└──────────────────────┬───────────────────────┘
+                       │
+                       ▼  (PDO Connection)
+┌──────────────────────────────────────────────┐
+│  DATABASE: MySQL Persistent Storage          │
+│  - Table: employees, attendance, leaves, etc.│
+└──────────────────────────────────────────────┘
+  </div>
+
+  <h2>2. Live Access Credentials</h2>
+  <div class="highlight-card">
+    <p><strong>Production Link:</strong> <a href="https://hrms-pink-six.vercel.app/login">https://hrms-pink-six.vercel.app/login</a></p>
+    <p><strong>Primary Administrator Login:</strong></p>
+    <ul>
+      <li><strong>Email:</strong> <code>sarah.hashemi@osforh.com</code> (or <code>admin@hrms.com</code>)</li>
+      <li><strong>Password:</strong> <code>admin123</code></li>
+      <li><strong>Role Assigned:</strong> HR Manager (Full administrative & read/write access)</li>
+    </ul>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>3. Core System Modules & Features</h2>
+
+  <h3>3.1 Authentication & Security</h3>
+  <ul>
+    <li><strong>Session Verification:</strong> Validates user credentials against the database with hashed password matching or fallback administrative profiles.</li>
+    <li><strong>Token Management:</strong> Issues an authentication bearer token stored securely on client session storage to authorize ongoing requests.</li>
+    <li><strong>Role-Based Access:</strong> Automatically configures UI navigation, actions, and permissions based on the active persona (e.g., HR Manager, Department Lead, Staff).</li>
+  </ul>
+
+  <h3>3.2 Executive Dashboard & Real-Time Metrics</h3>
+  <ul>
+    <li><strong>KPI Overview:</strong> Instant counts of Total Active Employees, Department Breakdown, Daily Present Rates, and Pending Leave Requests.</li>
+    <li><strong>Live API Integration:</strong> The <code>/api/dashboard/metrics.php</code> endpoint computes these live metrics directly via SQL aggregate queries.</li>
+    <li><strong>Visual Analytics:</strong> Responsive charts rendering workforce trends, department distribution, and monthly attendance velocity.</li>
+  </ul>
+
+  <h3>3.3 Employee Directory & Lifecycle</h3>
+  <ul>
+    <li><strong>Complete Roster:</strong> Filterable, searchable datatable of staff profiles with photos, titles, emails, departments, and employment status.</li>
+    <li><strong>Employee Management:</strong> Add new hires, edit employee records, update organizational assignments, or remove profiles.</li>
+    <li><strong>REST Endpoint:</strong> Powered by <code>/api/employees/index.php</code> supporting GET, POST, PUT, and DELETE actions.</li>
+  </ul>
+
+  <h3>3.4 Attendance & Work Hours Tracking</h3>
+  <ul>
+    <li><strong>Daily Logs:</strong> Real-time tracking of employee check-in times, check-out status, and attendance anomalies (late arrivals, half-days).</li>
+    <li><strong>Filtering:</strong> Filter by date range, department, and attendance classification.</li>
+  </ul>
+
+  <h3>3.5 Leave & Absence Management</h3>
+  <ul>
+    <li><strong>Leave Requests:</strong> Employees submit vacation, sick leave, or personal time off.</li>
+    <li><strong>Manager Approvals:</strong> Pending requests are surfaced directly on the dashboard and HR console for one-click approval or rejection.</li>
+  </ul>
+
+  <h3>3.6 Celebrations & Organizational Culture</h3>
+  <ul>
+    <li>Surfaces upcoming birthdays, company anniversaries, and milestones to foster corporate engagement and team camaraderie.</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <h2>4. Technical Directory Structure</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Directory / File</th>
+        <th>Layer</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>src/app/</code></td>
+        <td>Frontend</td>
+        <td>Core routing, layouts (Sidebar, TopNavbar), and React Context providers (Role, Org).</td>
+      </tr>
+      <tr>
+        <td><code>src/features/</code></td>
+        <td>Frontend</td>
+        <td>Independent feature modules (dashboard, employees, attendance, leave, auth, etc.).</td>
+      </tr>
+      <tr>
+        <td><code>src/services/api.ts</code></td>
+        <td>Frontend</td>
+        <td>Centralized API client using Fetch API configured with dynamic <code>VITE_API_URL</code>.</td>
+      </tr>
+      <tr>
+        <td><code>backend/api/</code></td>
+        <td>Backend</td>
+        <td>Modular PHP endpoints processing JSON requests and formatting REST responses.</td>
+      </tr>
+      <tr>
+        <td><code>backend/config/</code></td>
+        <td>Backend</td>
+        <td><code>database.php</code> (PDO connection) and <code>cors.php</code> (Access-Control headers).</td>
+      </tr>
+      <tr>
+        <td><code>database/hrms_db.sql</code></td>
+        <td>Data Store</td>
+        <td>Complete relational SQL schema with pre-populated dummy enterprise data.</td>
+      </tr>
+      <tr>
+        <td><code>vercel.json</code></td>
+        <td>Deployment</td>
+        <td>Configures single-page application (SPA) rewrites to guarantee zero 404s on browser reloads.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. How the Data Flows (Step-by-Step)</h2>
+  
+  <div class="flow-step">
+    <div class="step-num">1</div>
+    <div>
+      <strong>User Action:</strong> The user visits <code>hrms-pink-six.vercel.app</code>. Vercel delivers the pre-built React application from global edge nodes in under 200ms.
+    </div>
+  </div>
+
+  <div class="flow-step">
+    <div class="step-num">2</div>
+    <div>
+      <strong>Sign-In Request:</strong> User enters credentials on the login screen. The app sends a <code>POST</code> request with JSON payload to <code>http://osforh-hrms.42web.io/api/auth/login.php</code>.
+    </div>
+  </div>
+
+  <div class="flow-step">
+    <div class="step-num">3</div>
+    <div>
+      <strong>Authentication & Token:</strong> The PHP script queries the <code>employees</code> table, validates the password, generates a session token, and returns the user object.
+    </div>
+  </div>
+
+  <div class="flow-step">
+    <div class="step-num">4</div>
+    <div>
+      <strong>Dashboard Loading:</strong> Once authorized, React calls <code>/api/dashboard/metrics.php</code>. The server queries the database and streams real-time counts into the dashboard cards and charts.
+    </div>
+  </div>
+
+  <h2>6. Maintenance & Future Updates</h2>
+  <ul>
+    <li><strong>Frontend Code Changes:</strong> Simply run <code>git add .</code>, <code>git commit -m "update"</code>, and <code>git push</code>. Vercel will automatically build and re-deploy within 60 seconds.</li>
+    <li><strong>Backend Logic Changes:</strong> Update PHP scripts locally and upload to the <code>htdocs/api/</code> directory in the InfinityFree File Manager.</li>
+  </ul>
+
+</body>
+</html>

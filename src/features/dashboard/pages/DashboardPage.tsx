@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { StatusBadge } from '@/components/common/StatusBadge';
 import { Avatar } from '@/components/ui/avatar';
 import { useOrganization } from '@/app/providers/OrganizationContext';
@@ -96,7 +96,7 @@ export const DashboardPage: React.FC = () => {
   ]);
 
   // Attendance Data (scaled proportionally for natural bar height)
-  const attendanceBarData = [
+  const allAttendanceData = [
     { month: 'Jan', onTime: 125, late: 12, absent: 5 },
     { month: 'Feb', onTime: 122, late: 14, absent: 6 },
     { month: 'Mar', onTime: 128, late: 10, absent: 4 },
@@ -106,7 +106,7 @@ export const DashboardPage: React.FC = () => {
   ];
 
   // Employee Growth Rate Data
-  const growthRateData = [
+  const allGrowthData = [
     { month: 'Jan', count: 110 },
     { month: 'Feb', count: 118 },
     { month: 'Mar', count: 124 },
@@ -114,6 +114,19 @@ export const DashboardPage: React.FC = () => {
     { month: 'May', count: 135 },
     { month: 'Jun', count: 142 },
   ];
+
+  const [attendanceTimeframe, setAttendanceTimeframe] = useState<'6m' | '3m' | 'year'>('6m');
+  const [growthTimeframe, setGrowthTimeframe] = useState<'6m' | '3m'>('6m');
+
+  const attendanceBarData = useMemo(() => {
+    if (attendanceTimeframe === '3m') return allAttendanceData.slice(-3);
+    return allAttendanceData;
+  }, [attendanceTimeframe]);
+
+  const growthRateData = useMemo(() => {
+    if (growthTimeframe === '3m') return allGrowthData.slice(-3);
+    return allGrowthData;
+  }, [growthTimeframe]);
 
   const handleToggleStatus = (id: string) => {
     setLeaveApplications((prev) =>
@@ -222,10 +235,14 @@ export const DashboardPage: React.FC = () => {
                 </h3>
                 <p className="text-[11px] text-stone-400 mt-0.5">Monthly check-in compliance</p>
               </div>
-              <select className="text-[11px] font-medium text-stone-600 bg-white border border-[#e6e3da] rounded-md px-2 py-0.5 outline-none cursor-pointer hover:border-stone-400">
-                <option>Last 6 Months</option>
-                <option>Last 3 Months</option>
-                <option>This Year</option>
+              <select 
+                value={attendanceTimeframe}
+                onChange={(e) => setAttendanceTimeframe(e.target.value as '6m' | '3m' | 'year')}
+                className="text-[11px] font-medium text-stone-600 bg-white border border-[#e6e3da] rounded-md px-2 py-0.5 outline-none cursor-pointer hover:border-stone-400"
+              >
+                <option value="6m">Last 6 Months</option>
+                <option value="3m">Last 3 Months</option>
+                <option value="year">This Year</option>
               </select>
             </div>
 
@@ -278,9 +295,13 @@ export const DashboardPage: React.FC = () => {
                 </h3>
                 <p className="text-[11px] text-stone-400 mt-0.5">Net active headcount trend</p>
               </div>
-              <select className="text-[11px] font-medium text-stone-600 bg-white border border-[#e6e3da] rounded-md px-2 py-0.5 outline-none cursor-pointer hover:border-stone-400">
-                <option>Last 6 Months</option>
-                <option>Last 3 Months</option>
+              <select 
+                value={growthTimeframe}
+                onChange={(e) => setGrowthTimeframe(e.target.value as '6m' | '3m')}
+                className="text-[11px] font-medium text-stone-600 bg-white border border-[#e6e3da] rounded-md px-2 py-0.5 outline-none cursor-pointer hover:border-stone-400"
+              >
+                <option value="6m">Last 6 Months</option>
+                <option value="3m">Last 3 Months</option>
               </select>
             </div>
 
@@ -323,9 +344,13 @@ export const DashboardPage: React.FC = () => {
                 </h3>
                 <p className="text-[11px] text-stone-400 mt-0.5">Category distribution</p>
               </div>
-              <select className="text-[11px] font-medium text-stone-600 bg-white border border-[#e6e3da] rounded-md px-2 py-0.5 outline-none cursor-pointer hover:border-stone-400">
-                <option>Last 6 Months</option>
-                <option>Last 3 Months</option>
+              <select 
+                value={growthTimeframe}
+                onChange={(e) => setGrowthTimeframe(e.target.value as '6m' | '3m')}
+                className="text-[11px] font-medium text-stone-600 bg-white border border-[#e6e3da] rounded-md px-2 py-0.5 outline-none cursor-pointer hover:border-stone-400"
+              >
+                <option value="6m">Last 6 Months</option>
+                <option value="3m">Last 3 Months</option>
               </select>
             </div>
 

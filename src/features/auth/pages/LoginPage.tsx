@@ -157,7 +157,7 @@ export const LoginPage: React.FC = () => {
           {/* Quick Demo Credentials */}
           <div className="pt-4 border-t border-[#f2efe8] space-y-2">
             <p className="text-[11px] font-medium text-stone-400 text-center">
-              Quick Test Credentials:
+              Quick Test Credentials (Click any role to auto-fill):
             </p>
             <div className="flex flex-col gap-1.5">
               <button
@@ -167,7 +167,31 @@ export const LoginPage: React.FC = () => {
               >
                 <div>
                   <span className="font-semibold text-stone-800">Sarah Al-Hashemi</span>
-                  <span className="text-stone-400 ml-1.5">(HR Manager)</span>
+                  <span className="text-stone-400 ml-1.5">(HR Manager / Admin)</span>
+                </div>
+                <span className="text-[10px] text-stone-500 font-mono">admin123</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleQuickFill('tariq.mansour@osforh.com')}
+                className="w-full text-left p-2 rounded-lg bg-[#faf9f5] border border-[#e6e3da] hover:border-stone-400 text-[11px] flex items-center justify-between transition-colors"
+              >
+                <div>
+                  <span className="font-semibold text-stone-800">Tariq Mansour</span>
+                  <span className="text-stone-400 ml-1.5">(Employee / Self-Service ESS)</span>
+                </div>
+                <span className="text-[10px] text-stone-500 font-mono">admin123</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleQuickFill('amira.nasser@osforh.com')}
+                className="w-full text-left p-2 rounded-lg bg-[#faf9f5] border border-[#e6e3da] hover:border-stone-400 text-[11px] flex items-center justify-between transition-colors"
+              >
+                <div>
+                  <span className="font-semibold text-stone-800">Amira Nasser</span>
+                  <span className="text-stone-400 ml-1.5">(Engineering Team Lead)</span>
                 </div>
                 <span className="text-[10px] text-stone-500 font-mono">admin123</span>
               </button>
